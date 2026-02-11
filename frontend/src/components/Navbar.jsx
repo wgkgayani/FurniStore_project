@@ -82,10 +82,7 @@ const Navbar = () => {
 
             {token ? (
               <div className="d-flex align-items-center gap-2">
-                <Link
-                  to="/profile"
-                  className="btn btn-outline-secondary"
-                >
+                <Link to="/profile" className="btn btn-outline-secondary">
                   <Person className="me-2" />
                   {user?.firstName || "User"}
                 </Link>
