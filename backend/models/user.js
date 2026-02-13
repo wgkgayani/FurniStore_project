@@ -34,6 +34,12 @@ const userSchema = mongoose.Schema({
     require: true,
     default: "https://avatar.iran.liara.run/public/boy?username=Ash",
   },
+  resetPasswordToken: {
+    type: String,
+  },
+  resetPasswordExpires: {
+    type: Date,
+  },
 });
 
 const User = mongoose.model("users", userSchema); // to connect to users collection

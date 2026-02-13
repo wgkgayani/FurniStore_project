@@ -86,14 +86,6 @@ const Navbar = () => {
                   <Person className="me-2" />
                   {user?.firstName || "User"}
                 </Link>
-                <button
-                  className="btn btn-danger"
-                  onClick={handleLogout}
-                  type="button"
-                >
-                  <BoxArrowRight className="me-2" />
-                  Logout
-                </button>
               </div>
             ) : (
               <>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { logout } from "../redux/slices/authSlice";
 import {
   Person,
   Envelope,
@@ -10,10 +11,12 @@ import {
   Lock,
   Camera,
   BoxSeam,
+  BoxArrowRight,
 } from "react-bootstrap-icons";
 
 const UserProfile = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { user, token } = useSelector((state) => state.auth);
 
   const [formData, setFormData] = useState({
@@ -95,6 +98,12 @@ const UserProfile = () => {
     }, 1000);
   };
 
+  const handleLogout = () => {
+    dispatch(logout());
+    toast.success("Logged out successfully");
+    navigate("/login");
+  };
+
   return (
     <div className="container py-5">
       <div className="row">
@@ -162,6 +171,13 @@ const UserProfile = () => {
                 >
                   <GeoAlt className="me-2" />
                   Address Book
+                </button>
+                <button
+                  className="list-group-item list-group-item-action text-start text-danger"
+                  onClick={handleLogout}
+                >
+                  <BoxArrowRight className="me-2" />
+                  Logout
                 </button>
               </div>
             </div>

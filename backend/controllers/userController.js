@@ -1,5 +1,6 @@
 import User from "../models/user.js"; //use to import User model
 import bcrypt from "bcrypt"; //bcrypt use karanne password hash karanna
+import crypto from "crypto";
 import jwt from "jsonwebtoken";
 
 export function createUser(req, res) {
@@ -94,4 +95,52 @@ export function isAdmin(req) {
     return false;
   }
   return true;
+}
+
+export async function forgotPassword(req, res) {
+  const email = req.body.email;
+  if (!email) {
+    return res.status(400).json({ message: "Email is required" });
+  }
+
+  const user = await User.findOne({ email: email });
+  if (!user) {
+    // Don't reveal whether the email exists
+    return res.json({ message: "If an account exists, a reset link was sent" });
+  }
+
+  const token = crypto.randomBytes(20).toString("hex");
+  user.resetPasswordToken = token;
+  user.resetPasswordExpires = Date.now() + 3600 * 1000; // 1 hour
+  await user.save();
+
+  const resetUrl = `http://localhost:3003/reset-password/${token}`;
+
+  // In a real app you would send an email with the resetUrl. For now return it for development.
+  return res.json({ message: "Reset link generated", resetUrl });
+}
+
+export async function resetPassword(req, res) {
+  const token = req.params.token;
+  const { password } = req.body;
+
+  if (!password) {
+    return res.status(400).json({ message: "Password is required" });
+  }
+
+  const user = await User.findOne({
+    resetPasswordToken: token,
+    resetPasswordExpires: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return res.status(400).json({ message: "Invalid or expired token" });
+  }
+
+  user.password = bcrypt.hashSync(password, 10);
+  user.resetPasswordToken = undefined;
+  user.resetPasswordExpires = undefined;
+  await user.save();
+
+  return res.json({ message: "Password has been reset" });
 }

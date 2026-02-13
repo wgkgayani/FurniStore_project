@@ -1,39 +1,36 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Envelope } from "react-bootstrap-icons";
 import { authAPI } from "../services/api";
 
-const ForgotPassword = () => {
+const ResetPassword = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const { token } = useParams();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email) {
-      toast.error("Please enter your email");
+    if (!password || !confirmPassword) {
+      toast.error("Please fill all fields");
+      return;
+    }
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
       return;
     }
     setLoading(true);
     authAPI
-      .forgotPassword(email)
+      .resetPassword(token, password)
       .then((res) => {
         setLoading(false);
-        const data = res.data;
-        toast.success(
-          data.message || "If an account exists, a reset link was sent.",
-        );
-        // For development: show reset link in console (do not expose in production)
-        if (data.resetUrl) {
-          // eslint-disable-next-line no-console
-          console.info("Reset URL:", data.resetUrl);
-        }
+        toast.success(res.data.message || "Password reset successful");
         navigate("/login");
       })
       .catch((err) => {
         setLoading(false);
-        toast.error(err.response?.data?.message || "Failed to send reset link");
+        toast.error(err.response?.data?.message || "Failed to reset password");
       });
   };
 
@@ -43,24 +40,28 @@ const ForgotPassword = () => {
         <div className="col-md-8 col-lg-6">
           <div className="card shadow">
             <div className="card-body p-5">
-              <h3 className="mb-3">Forgot Password</h3>
-              <p className="text-muted">
-                Enter your email and we'll send a reset link.
-              </p>
+              <h3 className="mb-3">Reset Password</h3>
+              <p className="text-muted">Set a new password for your account.</p>
 
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    <Envelope className="me-2" /> Email Address
-                  </label>
+                  <label className="form-label">New Password</label>
                   <input
-                    type="email"
-                    id="email"
-                    name="email"
+                    type="password"
                     className="form-control"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Confirm Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                   />
                 </div>
@@ -70,7 +71,7 @@ const ForgotPassword = () => {
                   className="btn btn-primary w-100"
                   disabled={loading}
                 >
-                  {loading ? "Sending..." : "Send Reset Link"}
+                  {loading ? "Resetting..." : "Reset Password"}
                 </button>
 
                 <div className="text-center mt-3">
@@ -91,4 +92,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default ResetPassword;
