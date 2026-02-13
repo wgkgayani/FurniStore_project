@@ -258,23 +258,6 @@ const Register = () => {
               </form>
 
               {/* Benefits Section */}
-              <div className="mt-5 pt-4 border-top">
-                <h6 className="text-center mb-3">Benefits of Registering:</h6>
-                <div className="row text-center">
-                  <div className="col-4">
-                    <div className="text-primary mb-2">🚚</div>
-                    <small>Fast Checkout</small>
-                  </div>
-                  <div className="col-4">
-                    <div className="text-primary mb-2">📦</div>
-                    <small>Order Tracking</small>
-                  </div>
-                  <div className="col-4">
-                    <div className="text-primary mb-2">🎁</div>
-                    <small>Exclusive Offers</small>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
