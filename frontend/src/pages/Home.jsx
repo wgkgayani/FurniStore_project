@@ -208,6 +208,9 @@ const Home = () => {
                 </div>
               </Link>
             </div>
+            <Link to="/products" className="btn btn-outline-primary">
+              View All <ArrowRight className="ms-2" />
+            </Link>
           </div>
         </div>
       </section>

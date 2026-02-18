@@ -11,6 +11,7 @@ import {
   PersonAdd,
 } from "react-bootstrap-icons";
 
+// Navbar component with Bootstrap styling and icons from react-bootstrap-icons
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
