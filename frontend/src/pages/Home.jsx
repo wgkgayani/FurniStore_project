@@ -69,6 +69,15 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Featured Products */}
+      <section className="featured-products mb-5">
+        <div className="container">
+          <div className="d-flex justify-content-between align-items-center mb-4">
+            <h2 className="fw-bold">Featured Products</h2>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="features-section mb-5">
         <div className="container">
@@ -102,29 +111,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Featured Products */}
-      <section className="featured-products mb-5">
-        <div className="container">
-          <div className="d-flex justify-content-between align-items-center mb-4">
-            <h2 className="fw-bold">Featured Products</h2>
-          </div>
-
-          {loading ? (
-            <div className="spinner-container">
-              <div className="spinner-border text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            </div>
-          ) : (
-            <div className="product-grid">
-              {featuredProducts.map((product) => (
-                <ProductCard key={product._id} product={product} />
-              ))}
-            </div>
-          )}
         </div>
       </section>
 
