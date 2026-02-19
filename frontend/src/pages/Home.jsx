@@ -153,7 +153,7 @@ const Home = () => {
                   style={{
                     right: "-50px",
                     bottom: "-50px",
-                    opacity: "0.1",
+                    opacity: "0.5",
                     fontSize: "200px",
                   }}
                 >
@@ -171,7 +171,7 @@ const Home = () => {
                 className="ad-card rounded-lg shadow-sm overflow-hidden h-100 position-relative"
                 style={{
                   background:
-                    "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                    "linear-gradient(13deg, #667eea 0%, #764ba2 100%)",
                   color: "white",
                   minHeight: "250px",
                 }}
@@ -201,7 +201,7 @@ const Home = () => {
                 className="ad-card rounded-lg shadow-sm overflow-hidden h-100 position-relative"
                 style={{
                   background:
-                    "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+                    "linear-gradient(13deg, #f093fb 0%, #f5576c 100%)",
                   color: "white",
                   minHeight: "250px",
                 }}
@@ -231,7 +231,7 @@ const Home = () => {
                 className="ad-card rounded-lg shadow-sm overflow-hidden h-100 position-relative"
                 style={{
                   background:
-                    "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+                    "linear-gradient(13deg, #fa709a 0%, #fee140 100%)",
                   color: "white",
                   minHeight: "250px",
                 }}
@@ -261,24 +261,24 @@ const Home = () => {
             <div className="col-md-6">
               <div
                 className="featured-ad rounded-lg overflow-hidden shadow-sm position-relative h-100"
-                style={{
+                /* style={{
                   background:
                     "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
                   minHeight: "200px",
-                }}
+                }}*/
               >
                 <img
                   src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
                   alt="Modern Sofa Collection"
                   className="img-fluid h-100 w-100"
-                  style={{ objectFit: "cover", opacity: "0.3" }}
+                  style={{ objectFit: "cover", opacity: "0.8" }}
                 />
                 <div
                   className="position-absolute top-0 start-0 p-4 w-100 h-100 d-flex flex-column justify-content-center"
                   style={{ zIndex: 2 }}
                 >
-                  <h3 className="fw-bold text-white mb-2">Sofa Collection</h3>
-                  <p className="text-white mb-3">
+                  <h3 className="fw-bold text-black mb-2">Sofa Collection</h3>
+                  <p className="text-black mb-3">
                     Premium comfort & style combined
                   </p>
                   <Link
@@ -294,24 +294,24 @@ const Home = () => {
             <div className="col-md-6">
               <div
                 className="featured-ad rounded-lg overflow-hidden shadow-sm position-relative h-100"
-                style={{
+                /* style={{
                   background:
                     "linear-gradient(135deg, #ffa400 0%, #ff6b6b 100%)",
                   minHeight: "200px",
-                }}
+                }}*/
               >
                 <img
                   src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
                   alt="Office Desk Collection"
                   className="img-fluid h-100 w-100"
-                  style={{ objectFit: "cover", opacity: "0.3" }}
+                  style={{ objectFit: "cover", opacity: "0.8" }}
                 />
                 <div
                   className="position-absolute top-0 start-0 p-4 w-100 h-100 d-flex flex-column justify-content-center"
                   style={{ zIndex: 2 }}
                 >
-                  <h3 className="fw-bold text-white mb-2">Office Desks</h3>
-                  <p className="text-white mb-3">
+                  <h3 className="fw-bold text-black mb-2">Office Desks</h3>
+                  <p className="text-black mb-3">
                     Work smarter with ergonomic designs
                   </p>
                   <Link
