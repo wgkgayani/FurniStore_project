@@ -271,7 +271,7 @@ const Home = () => {
                   src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
                   alt="Modern Sofa Collection"
                   className="img-fluid h-100 w-100"
-                  style={{ objectFit: "cover", opacity: "0.8" }}
+                  style={{ objectFit: "cover", opacity: "0.6" }}
                 />
                 <div
                   className="position-absolute top-0 start-0 p-4 w-100 h-100 d-flex flex-column justify-content-center"
@@ -304,7 +304,7 @@ const Home = () => {
                   src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
                   alt="Office Desk Collection"
                   className="img-fluid h-100 w-100"
-                  style={{ objectFit: "cover", opacity: "0.8" }}
+                  style={{ objectFit: "cover", opacity: "0.6" }}
                 />
                 <div
                   className="position-absolute top-0 start-0 p-4 w-100 h-100 d-flex flex-column justify-content-center"
