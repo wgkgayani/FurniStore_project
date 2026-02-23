@@ -37,9 +37,9 @@ const Home = () => {
       <section
         className="hero-section py-5 mb-5"
         style={{
-          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-          color: "white",
-          borderRadius: "10px",
+          background: `url(https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80)`,
+          backgroundSize: "cover",
+          backgroundPosition: "bottom",
         }}
       >
         <div className="container">
@@ -57,14 +57,14 @@ const Home = () => {
                 Shop Now <ArrowRight className="ms-2" />
               </Link>
             </div>
-            <div className="col-lg-6">
+            {/* <div className="col-lg-6">
               <img
                 src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                 alt="Furniture"
                 className="img-fluid rounded shadow"
                 style={{ maxHeight: "400px", objectFit: "cover" }}
               />
-            </div>
+            </div>*/}
           </div>
         </div>
       </section>
