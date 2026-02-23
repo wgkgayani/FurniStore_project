@@ -35,20 +35,24 @@ const Home = () => {
     <div className="home">
       {/* Hero Section */}
       <section
-        className="hero-section py-5 mb-5"
+        className="hero-section py-5 mb-5 "
         style={{
           background: `url(https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80)`,
           backgroundSize: "cover",
           backgroundPosition: "bottom",
+          filter: "brightness(0.7)", // 0.7 = 70% brightness
         }}
       >
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6">
-              <h1 className="display-4 fw-bold mb-4">
+            <div className="col-lg-6 mx-auto">
+              <h1
+                className="display-4 fw-bold mb-4"
+                style={{ color: "#ffffff" }}
+              >
                 Discover Premium Furniture for Your Dream Home
               </h1>
-              <p className="lead mb-4">
+              <p className="lead mb-4" style={{ color: "#ffffff" }}>
                 Transform your living space with our curated collection of
                 high-quality furniture. Comfort, style, and durability in every
                 piece.
