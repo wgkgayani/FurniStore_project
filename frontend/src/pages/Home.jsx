@@ -14,6 +14,57 @@ const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const sampleProducts = [
+    {
+      _id: "1",
+      name: "Premium Leather Sofa - Black",
+      price: 2999,
+      originalPrice: 5999,
+      image: "/OIP%20 (1).jpeg",
+      reviews: "156",
+    },
+    {
+      _id: "2",
+      name: "Modern Oak Dining Table",
+      price: 1299,
+      originalPrice: 2199,
+      image: "/OIP%20(2).jpeg",
+      reviews: "89",
+    },
+    {
+      _id: "3",
+      name: "Ergonomic Office Chair",
+      price: 449,
+      originalPrice: 799,
+      image: "/OIP%20(3).jpeg",
+      reviews: "234",
+    },
+    {
+      _id: "4",
+      name: "Queen Size Bed Frame - Walnut",
+      price: 1899,
+      originalPrice: 3200,
+      image: "/OIP%20(4).jpeg",
+      reviews: "145",
+    },
+    {
+      _id: "5",
+      name: "Wooden Coffee Table",
+      price: 599,
+      originalPrice: 1099,
+      image: "/OIP%20(5).jpeg",
+      reviews: "78",
+    },
+    {
+      _id: "6",
+      name: "Modern Wall Cabinet - Gray",
+      price: 799,
+      originalPrice: 1499,
+      image: "/OIP%20(6).jpeg",
+      reviews: "92",
+    },
+  ];
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -21,11 +72,17 @@ const Home = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await productAPI.getAll();
-      // Get first 6 products as featured
-      setFeaturedProducts(response.data.slice(0, 6));
-    } catch (error) {
-      console.error("Error fetching products:", error);
+      try {
+        const response = await productAPI.getAll();
+        const apiProducts = response.data.slice(0, 6);
+        if (apiProducts.length > 0) {
+          setFeaturedProducts(apiProducts);
+        } else {
+          setFeaturedProducts(sampleProducts);
+        }
+      } catch {
+        setFeaturedProducts(sampleProducts);
+      }
     } finally {
       setLoading(false);
     }
@@ -496,91 +553,241 @@ const Home = () => {
         <div className="container">
           <h2 className="fw-bold mb-4">Just For You</h2>
           <div className="row g-4">
-            {featuredProducts && featuredProducts.length > 0 ? (
-              featuredProducts.map((product) => (
-                <div
-                  key={product._id}
-                  className="col-lg-2 col-md-3 col-sm-4 col-6"
-                >
-                  <Link
-                    to={`/product/${product._id}`}
-                    className="text-decoration-none"
+            {featuredProducts && featuredProducts.length > 0
+              ? featuredProducts.map((product) => (
+                  <div
+                    key={product._id}
+                    className="col-lg-2 col-md-3 col-sm-4 col-6"
                   >
-                    <div className="card product-card h-100 shadow-sm">
-                      <div
-                        style={{
-                          height: "180px",
-                          overflow: "hidden",
-                          backgroundColor: "#f5f5f5",
-                        }}
-                      >
-                        <img
-                          src={
-                            product.image || "https://via.placeholder.com/180"
-                          }
-                          alt={product.name}
-                          className="card-img-top w-100 h-100"
+                    <Link
+                      to={`/product/${product._id}`}
+                      className="text-decoration-none"
+                    >
+                      <div className="card product-card h-100 shadow-sm">
+                        <div
                           style={{
-                            objectFit: "cover",
-                            objectPosition: "center",
+                            height: "180px",
+                            overflow: "hidden",
+                            backgroundColor: "#f5f5f5",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="card-img-top w-100 h-100"
+                            style={{
+                              objectFit: "cover",
+                              objectPosition: "center",
+                              display: "block",
+                            }}
+                            onError={(e) => {
+                              e.target.src =
+                                "https://via.placeholder.com/180x180?text=Furniture";
+                            }}
+                          />
+                        </div>
+                        <div className="card-body p-3">
+                          <h6
+                            className="card-title fw-600 text-dark mb-2"
+                            style={{ fontSize: "0.9rem", lineHeight: "1.3" }}
+                          >
+                            {product.name}
+                          </h6>
+                          <div className="d-flex align-items-center gap-2 mb-2">
+                            <span className="fw-bold text-danger">
+                              Rs.{product.price}
+                            </span>
+                            {product.originalPrice && (
+                              <>
+                                <span
+                                  className="text-muted text-decoration-line-through"
+                                  style={{ fontSize: "0.85rem" }}
+                                >
+                                  Rs.{product.originalPrice}
+                                </span>
+                                <span
+                                  className="badge bg-danger"
+                                  style={{ fontSize: "0.7rem" }}
+                                >
+                                  {Math.round(
+                                    ((product.originalPrice - product.price) /
+                                      product.originalPrice) *
+                                      100,
+                                  )}
+                                  %
+                                </span>
+                              </>
+                            )}
+                          </div>
+                          <div className="d-flex align-items-center gap-1">
+                            <div
+                              className="text-warning"
+                              style={{ fontSize: "0.85rem" }}
+                            >
+                              ★★★★☆
+                            </div>
+                            <span
+                              className="text-muted"
+                              style={{ fontSize: "0.75rem" }}
+                            >
+                              ({product.reviews || "0"})
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                ))
+              : loading
+                ? // Skeleton Loading Cards
+                  Array.from({ length: 6 }).map((_, index) => (
+                    <div
+                      key={`skeleton-${index}`}
+                      className="col-lg-2 col-md-3 col-sm-4 col-6"
+                    >
+                      <div className="card product-card h-100 shadow-sm">
+                        <div
+                          style={{
+                            height: "180px",
+                            overflow: "hidden",
+                            backgroundColor: "#e9ecef",
+                            animation: "shimmer 2s infinite",
                           }}
                         />
-                      </div>
-                      <div className="card-body p-3">
-                        <h6
-                          className="card-title fw-600 text-dark mb-2"
-                          style={{ fontSize: "0.9rem", lineHeight: "1.3" }}
-                        >
-                          {product.name}
-                        </h6>
-                        <div className="d-flex align-items-center gap-2 mb-2">
-                          <span className="fw-bold text-danger">
-                            Rs.{product.price}
-                          </span>
-                          {product.originalPrice && (
-                            <>
-                              <span
-                                className="text-muted text-decoration-line-through"
-                                style={{ fontSize: "0.85rem" }}
-                              >
-                                Rs.{product.originalPrice}
-                              </span>
-                              <span
-                                className="badge bg-danger"
-                                style={{ fontSize: "0.7rem" }}
-                              >
-                                {Math.round(
-                                  ((product.originalPrice - product.price) /
-                                    product.originalPrice) *
-                                    100,
-                                )}
-                                %
-                              </span>
-                            </>
-                          )}
-                        </div>
-                        <div className="d-flex align-items-center gap-1">
+                        <div className="card-body p-3">
                           <div
-                            className="text-warning"
-                            style={{ fontSize: "0.85rem" }}
-                          >
-                            ★★★★☆
-                          </div>
-                          <span
-                            className="text-muted"
-                            style={{ fontSize: "0.75rem" }}
-                          >
-                            ({product.reviews || "0"})
-                          </span>
+                            className="mb-2"
+                            style={{
+                              height: "18px",
+                              backgroundColor: "#e9ecef",
+                              borderRadius: "4px",
+                              animation: "shimmer 2s infinite",
+                            }}
+                          />
+                          <div
+                            className="mb-2"
+                            style={{
+                              height: "18px",
+                              backgroundColor: "#e9ecef",
+                              borderRadius: "4px",
+                              width: "70%",
+                              animation: "shimmer 2s infinite",
+                            }}
+                          />
+                          <div
+                            className="mb-2"
+                            style={{
+                              height: "16px",
+                              backgroundColor: "#e9ecef",
+                              borderRadius: "4px",
+                              width: "50%",
+                              animation: "shimmer 2s infinite",
+                            }}
+                          />
+                          <div
+                            style={{
+                              height: "14px",
+                              backgroundColor: "#e9ecef",
+                              borderRadius: "4px",
+                              width: "60%",
+                              animation: "shimmer 2s infinite",
+                            }}
+                          />
                         </div>
                       </div>
                     </div>
-                  </Link>
-                </div>
-              ))
-            ) : (
-              <p className="text-center text-muted">Loading products...</p>
-            )}
+                  ))
+                : // Show sample products if no API products
+                  sampleProducts.map((product) => (
+                    <div
+                      key={product._id}
+                      className="col-lg-2 col-md-3 col-sm-4 col-6"
+                    >
+                      <Link
+                        to={`/product/${product._id}`}
+                        className="text-decoration-none"
+                      >
+                        <div className="card product-card h-100 shadow-sm">
+                          <div
+                            style={{
+                              height: "180px",
+                              overflow: "hidden",
+                              backgroundColor: "#f5f5f5",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="card-img-top w-100 h-100"
+                              style={{
+                                objectFit: "cover",
+                                objectPosition: "center",
+                                display: "block",
+                              }}
+                              onError={(e) => {
+                                e.target.src =
+                                  "https://via.placeholder.com/180x180?text=Furniture";
+                              }}
+                            />
+                          </div>
+                          <div className="card-body p-3">
+                            <h6
+                              className="card-title fw-600 text-dark mb-2"
+                              style={{ fontSize: "0.9rem", lineHeight: "1.3" }}
+                            >
+                              {product.name}
+                            </h6>
+                            <div className="d-flex align-items-center gap-2 mb-2">
+                              <span className="fw-bold text-danger">
+                                Rs.{product.price}
+                              </span>
+                              {product.originalPrice && (
+                                <>
+                                  <span
+                                    className="text-muted text-decoration-line-through"
+                                    style={{ fontSize: "0.85rem" }}
+                                  >
+                                    Rs.{product.originalPrice}
+                                  </span>
+                                  <span
+                                    className="badge bg-danger"
+                                    style={{ fontSize: "0.7rem" }}
+                                  >
+                                    {Math.round(
+                                      ((product.originalPrice - product.price) /
+                                        product.originalPrice) *
+                                        100,
+                                    )}
+                                    %
+                                  </span>
+                                </>
+                              )}
+                            </div>
+                            <div className="d-flex align-items-center gap-1">
+                              <div
+                                className="text-warning"
+                                style={{ fontSize: "0.85rem" }}
+                              >
+                                ★★★★☆
+                              </div>
+                              <span
+                                className="text-muted"
+                                style={{ fontSize: "0.75rem" }}
+                              >
+                                ({product.reviews || "0"})
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
           </div>
           <div className="row mt-4">
             <div className="col-12 text-center">

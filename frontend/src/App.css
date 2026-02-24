@@ -229,3 +229,17 @@ body {
     padding: 15px 0;
   }
 }
+
+/* Shimmer Loading Animation */
+@keyframes shimmer {
+  0% {
+    background: linear-gradient(90deg, #e9ecef 0%, #f5f5f5 50%, #e9ecef 100%);
+    background-size: 200% 100%;
+    background-position: 200% 0;
+  }
+  100% {
+    background: linear-gradient(90deg, #e9ecef 0%, #f5f5f5 50%, #e9ecef 100%);
+    background-size: 200% 100%;
+    background-position: -200% 0;
+  }
+}
