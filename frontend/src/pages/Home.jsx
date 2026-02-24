@@ -490,6 +490,107 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Just For You Section */}
+      <section className="just-for-you-section mb-5">
+        <div className="container">
+          <h2 className="fw-bold mb-4">Just For You</h2>
+          <div className="row g-4">
+            {featuredProducts && featuredProducts.length > 0 ? (
+              featuredProducts.map((product) => (
+                <div
+                  key={product._id}
+                  className="col-lg-2 col-md-3 col-sm-4 col-6"
+                >
+                  <Link
+                    to={`/product/${product._id}`}
+                    className="text-decoration-none"
+                  >
+                    <div className="card product-card h-100 shadow-sm">
+                      <div
+                        style={{
+                          height: "180px",
+                          overflow: "hidden",
+                          backgroundColor: "#f5f5f5",
+                        }}
+                      >
+                        <img
+                          src={
+                            product.image || "https://via.placeholder.com/180"
+                          }
+                          alt={product.name}
+                          className="card-img-top w-100 h-100"
+                          style={{
+                            objectFit: "cover",
+                            objectPosition: "center",
+                          }}
+                        />
+                      </div>
+                      <div className="card-body p-3">
+                        <h6
+                          className="card-title fw-600 text-dark mb-2"
+                          style={{ fontSize: "0.9rem", lineHeight: "1.3" }}
+                        >
+                          {product.name}
+                        </h6>
+                        <div className="d-flex align-items-center gap-2 mb-2">
+                          <span className="fw-bold text-danger">
+                            Rs.{product.price}
+                          </span>
+                          {product.originalPrice && (
+                            <>
+                              <span
+                                className="text-muted text-decoration-line-through"
+                                style={{ fontSize: "0.85rem" }}
+                              >
+                                Rs.{product.originalPrice}
+                              </span>
+                              <span
+                                className="badge bg-danger"
+                                style={{ fontSize: "0.7rem" }}
+                              >
+                                {Math.round(
+                                  ((product.originalPrice - product.price) /
+                                    product.originalPrice) *
+                                    100,
+                                )}
+                                %
+                              </span>
+                            </>
+                          )}
+                        </div>
+                        <div className="d-flex align-items-center gap-1">
+                          <div
+                            className="text-warning"
+                            style={{ fontSize: "0.85rem" }}
+                          >
+                            ★★★★☆
+                          </div>
+                          <span
+                            className="text-muted"
+                            style={{ fontSize: "0.75rem" }}
+                          >
+                            ({product.reviews || "0"})
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <p className="text-center text-muted">Loading products...</p>
+            )}
+          </div>
+          <div className="row mt-4">
+            <div className="col-12 text-center">
+              <Link to="/products" className="btn btn-outline-primary">
+                View More <ArrowRight className="ms-2" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
