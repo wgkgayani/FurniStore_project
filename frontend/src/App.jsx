@@ -38,6 +38,10 @@ function App() {
             <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/orders" element={<Orders />} />
+            <Route
+              path="/*"
+              element={<div className="text-center py-5">Page Not Found</div>}
+            />
           </Routes>
         </div>
         <Footer />

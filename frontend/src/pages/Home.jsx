@@ -17,49 +17,49 @@ const Home = () => {
   const sampleProducts = [
     {
       _id: "1",
-      name: "Premium Leather Sofa - Black",
-      price: 2999,
-      originalPrice: 5999,
+      name: "Modern Oak Dining Table",
+      price: 29999,
+      originalPrice: 59999,
       image: "/images/OIP-1.jpeg",
       reviews: "156",
     },
     {
       _id: "2",
-      name: "Modern Oak Dining Table",
-      price: 1299,
-      originalPrice: 2199,
+      name: "Premium Leather Sofa - Black",
+      price: 12999,
+      originalPrice: 21999,
       image: "/images/OIP-2.jpeg",
       reviews: "89",
     },
     {
       _id: "3",
-      name: "Ergonomic Office Chair",
-      price: 449,
-      originalPrice: 799,
+      name: "Wooden Coffee Table",
+      price: 4499,
+      originalPrice: 7999,
       image: "/images/OIP-3.jpeg",
       reviews: "234",
     },
     {
       _id: "4",
-      name: "Queen Size Bed Frame - Walnut",
-      price: 1899,
-      originalPrice: 3200,
+      name: "Ergonomic Office Chair",
+      price: 28999,
+      originalPrice: 32000,
       image: "/images/OIP-4.jpeg",
       reviews: "145",
     },
     {
       _id: "5",
-      name: "Wooden Coffee Table",
-      price: 599,
-      originalPrice: 1099,
+      name: "Queen Size Bed Frame - Walnut",
+      price: 59999,
+      originalPrice: 10999,
       image: "/images/OIP-5.jpeg",
       reviews: "78",
     },
     {
       _id: "6",
       name: "Modern Wall Cabinet - Gray",
-      price: 799,
-      originalPrice: 1499,
+      price: 7999,
+      originalPrice: 14999,
       image: "/images/OIP-6.jpeg",
       reviews: "92",
     },
@@ -117,14 +117,6 @@ const Home = () => {
                 Shop Now <ArrowRight className="ms-2" />
               </Link>
             </div>
-            {/* <div className="col-lg-6">
-              <img
-                src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Furniture"
-                className="img-fluid rounded shadow"
-                style={{ maxHeight: "400px", objectFit: "cover" }}
-              />
-            </div>*/}
           </div>
         </div>
       </section>
@@ -319,14 +311,7 @@ const Home = () => {
           {/* Featured Ad Banner */}
           <div className="row">
             <div className="col-md-6">
-              <div
-                className="featured-ad rounded-lg overflow-hidden shadow-sm position-relative h-100"
-                /* style={{
-                  background:
-                    "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-                  minHeight: "200px",
-                }}*/
-              >
+              <div className="featured-ad rounded-lg overflow-hidden shadow-sm position-relative h-100">
                 <img
                   src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
                   alt="Modern Sofa Collection"
@@ -352,14 +337,7 @@ const Home = () => {
             </div>
 
             <div className="col-md-6">
-              <div
-                className="featured-ad rounded-lg overflow-hidden shadow-sm position-relative h-100"
-                /* style={{
-                  background:
-                    "linear-gradient(135deg, #ffa400 0%, #ff6b6b 100%)",
-                  minHeight: "200px",
-                }}*/
-              >
+              <div className="featured-ad rounded-lg overflow-hidden shadow-sm position-relative h-100">
                 <img
                   src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
                   alt="Office Desk Collection"
@@ -435,7 +413,7 @@ const Home = () => {
               >
                 <div className="card category-card">
                   <img
-                    src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGSFet0SzJdS5Gjn2peHltj2cU5kr0_C-maw&s"
                     alt="Tables"
                     className="card-img-top"
                     style={{ height: "150px", objectFit: "cover" }}
@@ -494,6 +472,7 @@ const Home = () => {
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
+                            width: "100%",
                           }}
                         >
                           <img
@@ -543,20 +522,6 @@ const Home = () => {
                                 </span>
                               </>
                             )}
-                          </div>
-                          <div className="d-flex align-items-center gap-1">
-                            <div
-                              className="text-warning"
-                              style={{ fontSize: "0.85rem" }}
-                            >
-                              ★★★★☆
-                            </div>
-                            <span
-                              className="text-muted"
-                              style={{ fontSize: "0.75rem" }}
-                            >
-                              ({product.reviews || "0"})
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -690,20 +655,6 @@ const Home = () => {
                                   </span>
                                 </>
                               )}
-                            </div>
-                            <div className="d-flex align-items-center gap-1">
-                              <div
-                                className="text-warning"
-                                style={{ fontSize: "0.85rem" }}
-                              >
-                                ★★★★☆
-                              </div>
-                              <span
-                                className="text-muted"
-                                style={{ fontSize: "0.75rem" }}
-                              >
-                                ({product.reviews || "0"})
-                              </span>
                             </div>
                           </div>
                         </div>
