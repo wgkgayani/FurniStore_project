@@ -20,7 +20,7 @@ const Home = () => {
       name: "Premium Leather Sofa - Black",
       price: 2999,
       originalPrice: 5999,
-      image: "/OIP%20 (1).jpeg",
+      image: "/images/OIP-1.jpeg",
       reviews: "156",
     },
     {
@@ -28,7 +28,7 @@ const Home = () => {
       name: "Modern Oak Dining Table",
       price: 1299,
       originalPrice: 2199,
-      image: "/OIP%20(2).jpeg",
+      image: "/images/OIP-2.jpeg",
       reviews: "89",
     },
     {
@@ -36,7 +36,7 @@ const Home = () => {
       name: "Ergonomic Office Chair",
       price: 449,
       originalPrice: 799,
-      image: "/OIP%20(3).jpeg",
+      image: "/images/OIP-3.jpeg",
       reviews: "234",
     },
     {
@@ -44,7 +44,7 @@ const Home = () => {
       name: "Queen Size Bed Frame - Walnut",
       price: 1899,
       originalPrice: 3200,
-      image: "/OIP%20(4).jpeg",
+      image: "/images/OIP-4.jpeg",
       reviews: "145",
     },
     {
@@ -52,7 +52,7 @@ const Home = () => {
       name: "Wooden Coffee Table",
       price: 599,
       originalPrice: 1099,
-      image: "/OIP%20(5).jpeg",
+      image: "/images/OIP-5.jpeg",
       reviews: "78",
     },
     {
@@ -60,7 +60,7 @@ const Home = () => {
       name: "Modern Wall Cabinet - Gray",
       price: 799,
       originalPrice: 1499,
-      image: "/OIP%20(6).jpeg",
+      image: "/images/OIP-6.jpeg",
       reviews: "92",
     },
   ];
@@ -467,84 +467,6 @@ const Home = () => {
           </div>
 
           <h2> </h2>
-
-          <div className="row g-4">
-            <div className="col-md-3">
-              <Link
-                to="/products?category=sofa"
-                className="text-decoration-none"
-              >
-                <div className="card category-card">
-                  <img
-                    src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                    alt="Sofas"
-                    className="card-img-top"
-                    style={{ height: "150px", objectFit: "cover" }}
-                  />
-                  <div className="card-body text-center">
-                    <h5 className="card-title">Sofas</h5>
-                  </div>
-                </div>
-              </Link>
-            </div>
-            <div className="col-md-3">
-              <Link
-                to="/products?category=bed"
-                className="text-decoration-none"
-              >
-                <div className="card category-card">
-                  <img
-                    src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                    alt="Beds"
-                    className="card-img-top"
-                    style={{ height: "150px", objectFit: "cover" }}
-                  />
-                  <div className="card-body text-center">
-                    <h5 className="card-title">Beds</h5>
-                  </div>
-                </div>
-              </Link>
-            </div>
-            <div className="col-md-3">
-              <Link
-                to="/products?category=table"
-                className="text-decoration-none"
-              >
-                <div className="card category-card">
-                  <img
-                    src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                    alt="Tables"
-                    className="card-img-top"
-                    style={{ height: "150px", objectFit: "cover" }}
-                  />
-                  <div className="card-body text-center">
-                    <h5 className="card-title">Tables</h5>
-                  </div>
-                </div>
-              </Link>
-            </div>
-            <div className="col-md-3">
-              <Link
-                to="/products?category=chair"
-                className="text-decoration-none"
-              >
-                <div className="card category-card">
-                  <img
-                    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                    alt="Chairs"
-                    className="card-img-top"
-                    style={{ height: "150px", objectFit: "cover" }}
-                  />
-                  <div className="card-body text-center">
-                    <h5 className="card-title">Chairs</h5>
-                  </div>
-                </div>
-              </Link>
-            </div>
-            <Link to="/products" className="btn btn-outline-primary">
-              View All <ArrowRight className="ms-2" />
-            </Link>
-          </div>
         </div>
       </section>
 
