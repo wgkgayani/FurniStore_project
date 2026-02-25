@@ -217,18 +217,18 @@ const Cart = () => {
                 )}
               </p>
             </div>
-          </div>
 
-          <div className="card mt-3">
-            <div className="card-body">
-              <h6 className="card-title">Need Help?</h6>
-              <p className="card-text small">
-                <strong>Call us:</strong> +94 77 123 4567
-                <br />
-                <strong>Email:</strong> support@furnistore.com
-                <br />
-                <strong>Hours:</strong> Mon-Fri 9AM-6PM
-              </p>
+            <div className="card mt-3">
+              <div className="card-body">
+                <h6 className="card-title">Need Help?</h6>
+                <p className="card-text small">
+                  <strong>Call us:</strong> +94 77 123 4567
+                  <br />
+                  <strong>Email:</strong> support@furnistore.com
+                  <br />
+                  <strong>Hours:</strong> Mon-Fri 9AM-6PM
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -143,7 +143,7 @@ const UserProfile = () => {
       <div className="row">
         <div className="col-lg-4 mb-4">
           <div className="card">
-            <div className="card-body text-center">
+            <div className="card-body text-center ">
               <div className="position-relative d-inline-block mb-3">
                 <img
                   src={

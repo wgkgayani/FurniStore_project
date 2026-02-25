@@ -44,9 +44,13 @@ const Products = () => {
       );
     }
 
-    // Filter by category (you'll need to add category to your product model)
+    // Filter by category
     if (category !== "all") {
-      // Implement category filtering when you add categories to products
+      result = result.filter(
+        (product) =>
+          product.category &&
+          product.category.toLowerCase() === category.toLowerCase(),
+      );
     }
 
     // Sort products
@@ -83,7 +87,7 @@ const Products = () => {
 
         {/* Filters and Search */}
         <div className="row mb-4">
-          <div className="col-md-8">
+          <div className="col-md-4">
             <div className="input-group">
               <span className="input-group-text">
                 <Search />
@@ -96,6 +100,19 @@ const Products = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
+          </div>
+          <div className="col-md-4">
+            <select
+              className="form-select"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="all">All Categories</option>
+              <option value="Sofas">Sofas</option>
+              <option value="Beds">Beds</option>
+              <option value="Tables">Tables</option>
+              <option value="Chairs">Chairs</option>
+            </select>
           </div>
           <div className="col-md-4">
             <select

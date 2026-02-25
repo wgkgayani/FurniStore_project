@@ -400,20 +400,19 @@ const Checkout = () => {
                 <strong>Free shipping</strong> on orders over $100
               </div>
             </div>
-          </div>
-
-          <div className="card mt-3">
-            <div className="card-body">
-              <h6 className="card-title">Need Help?</h6>
-              <p className="card-text small">
-                Contact our customer support for assistance with your order.
-              </p>
-              <button
-                className="btn btn-outline-primary btn-sm"
-                onClick={() => navigate("/contact")}
-              >
-                Contact Support
-              </button>
+            <div className="card mt-3">
+              <div className="card-body">
+                <h6 className="card-title">Need Help?</h6>
+                <p className="card-text small">
+                  Contact our customer support for assistance with your order.
+                </p>
+                <button
+                  className="btn btn-outline-primary btn-sm"
+                  onClick={() => navigate("/contact")}
+                >
+                  Contact Support
+                </button>
+              </div>
             </div>
           </div>
         </div>

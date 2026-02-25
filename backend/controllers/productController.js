@@ -32,7 +32,7 @@ export async function getProducts(req, res) {
 }
 
 export function saveProduct(req, res) {
-  /* if (req.user == null) { 
+  if (req.user == null) {
     res.status(403).json({
       // 403 means forbidden
       message: "Unauthorized", // you need to be logged in
@@ -46,7 +46,7 @@ export function saveProduct(req, res) {
       message: "Unauthorized you need to be an admin", // you need to be admin
     });
     return; // stop further execution
-  }*/
+  }
 
   //console.log(req.body);
 
