@@ -21,7 +21,6 @@ const Home = () => {
       price: 29999,
       originalPrice: 59999,
       image: "/images/OIP-1.jpeg",
-      reviews: "156",
     },
     {
       _id: "2",
@@ -29,7 +28,6 @@ const Home = () => {
       price: 12999,
       originalPrice: 21999,
       image: "/images/OIP-2.jpeg",
-      reviews: "89",
     },
     {
       _id: "3",
@@ -37,7 +35,6 @@ const Home = () => {
       price: 4499,
       originalPrice: 7999,
       image: "/images/OIP-3.jpeg",
-      reviews: "234",
     },
     {
       _id: "4",
@@ -45,7 +42,6 @@ const Home = () => {
       price: 28999,
       originalPrice: 32000,
       image: "/images/OIP-4.jpeg",
-      reviews: "145",
     },
     {
       _id: "5",
@@ -53,7 +49,6 @@ const Home = () => {
       price: 59999,
       originalPrice: 10999,
       image: "/images/OIP-5.jpeg",
-      reviews: "78",
     },
     {
       _id: "6",
@@ -61,7 +56,6 @@ const Home = () => {
       price: 7999,
       originalPrice: 14999,
       image: "/images/OIP-6.jpeg",
-      reviews: "92",
     },
   ];
 
@@ -472,7 +466,6 @@ const Home = () => {
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            width: "100%",
                           }}
                         >
                           <img
@@ -642,7 +635,7 @@ const Home = () => {
                                   >
                                     Rs.{product.originalPrice}
                                   </span>
-                                  <span
+                                  {/*<span
                                     className="badge bg-danger"
                                     style={{ fontSize: "0.7rem" }}
                                   >
@@ -652,7 +645,7 @@ const Home = () => {
                                         100,
                                     )}
                                     %
-                                  </span>
+                                  </span>*/}
                                 </>
                               )}
                             </div>
