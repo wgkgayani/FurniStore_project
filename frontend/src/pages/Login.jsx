@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login, clearError } from "../redux/slices/authSlice";
@@ -16,7 +16,8 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.auth);
+  const { loading, error, user, token } = useSelector((state) => state.auth);
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -38,6 +39,18 @@ const Login = () => {
     }
   }, [error]);
 
+  // Redirect based on user role after successful login
+  useEffect(() => {
+    if (loginSuccess && user && token) {
+      if (user.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate(from);
+      }
+      setLoginSuccess(false);
+    }
+  }, [loginSuccess, user, token, navigate, from]);
+
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -58,7 +71,7 @@ const Login = () => {
 
     if (!result.error) {
       toast.success("Login successful!");
-      navigate(from);
+      setLoginSuccess(true);
     }
   };
 

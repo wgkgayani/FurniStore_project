@@ -4,7 +4,7 @@ import crypto from "crypto";
 import jwt from "jsonwebtoken";
 
 export function createUser(req, res) {
-  if (req.body.role == "admin") {
+  /*if (req.body.role == "admin") {
     //when user create account, first check user is admin or not
     if (req.user != null) {
       if (req.User.role != "admin") {
@@ -20,7 +20,7 @@ export function createUser(req, res) {
       });
       return; //stop below codes
     }
-  }
+  }*/
 
   const hashedPassword = bcrypt.hashSync(req.body.password, 10); //hash karanna password eka 10 times
 

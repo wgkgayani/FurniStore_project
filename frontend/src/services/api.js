@@ -35,6 +35,9 @@ export const orderAPI = {
   create: (order) => api.post("/orders", order),
   getOrders: () => api.get("/orders"),
   getOrderById: (id) => api.get(`/orders/${id}`),
+  // Admin APIs
+  getAllOrders: () => api.get("/admin/orders"), // Admin only
+  updateStatus: (id, status) => api.patch(`/admin/orders/${id}`, status),
 };
 
 export const authAPI = {
@@ -45,6 +48,14 @@ export const authAPI = {
   resetPassword: (token, password) =>
     api.post(`/users/reset-password/${token}`, { password }),
   updateProfile: (profile) => api.put(`/users/profile`, profile),
+};
+
+export const userAPI = {
+  // Admin APIs
+  getAllUsers: () => api.get("/admin/users"), // Admin only
+  toggleBlock: (id) => api.patch(`/admin/users/${id}/block`),
+  updateRole: (id, role) => api.patch(`/admin/users/${id}/role`, role),
+  deleteUser: (id) => api.delete(`/admin/users/${id}`),
 };
 
 export default api;

@@ -9,6 +9,8 @@ import productRouter from "./routes/productRouter.js";
 import userRouter from "./routes/userRouter.js";
 import orderRouter from "./routes/orderRouter.js";
 import jwt from "jsonwebtoken"; //import jwt from "jsonwebtoken";
+// Admin routes
+import adminRouter from "./routes/adminRoutes.js"; // Add this
 
 const app = express(); //create express app
 
@@ -50,7 +52,8 @@ app.use("/products", productRouter);
 app.use("/users", userRouter);
 app.use("/orders", orderRouter);
 //
-//
+//add admin routes
+app.use("/admin", adminRouter); // Add this
 //
 //
 
