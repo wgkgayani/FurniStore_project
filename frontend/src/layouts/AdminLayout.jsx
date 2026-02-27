@@ -39,7 +39,7 @@ const AdminLayout = () => {
       <div
         className="flex-grow-1"
         style={{
-          marginLeft: sidebarOpen ? "280px" : "80px",
+          marginLeft: sidebarOpen ? "2px" : "80px",
           transition: "margin 0.3s",
         }}
       >
