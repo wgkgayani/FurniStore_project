@@ -39,6 +39,37 @@ body {
   border-color: #95a5a6;
 }
 
+/* Custom Button Styles */
+.btn-outline-primary {
+  color: #8d6e63;
+  border-color: #8d6e63;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus {
+  background-color: #8d6e63;
+  border-color: #8d6e63;
+  color: #fff;
+}
+
+.btn-outline-success {
+  color: #8d6e63;
+  border-color: #8d6e63;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:active,
+.btn-outline-success:focus {
+  background-color: #8d6e63;
+  border-color: #8d6e63;
+  color: #fff;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(141, 110, 99, 0.25);
+}
+
 /* Cards */
 .card {
   border: none;
